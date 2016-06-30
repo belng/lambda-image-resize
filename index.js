@@ -3,8 +3,9 @@
 
 const AWS = require('aws-sdk');
 const gm = require('gm').subClass({ imageMagick: true });
+const config = require('./config');
 const dimensions = {
-	a: [16, 32, 48, 64, 96, 120, 240, 480, 960],
+	a: [16, 24, 32, 48, 64, 72, 96, 128, 256, 320, 480, 512, 640, 960],
 	b: [120, 240, 320, 480, 640, 960],
 	c: [120, 240, 320, 480, 640, 960]
 };
@@ -12,7 +13,7 @@ const dimensions = {
 exports.handler = (event, context, callback) => {
 	const s3 = new AWS.S3();
 	const bucket = event.Records[0].s3.bucket.name;
-	const destinationBucket = "s.bel.ng";
+	const destinationBucket = config.bucketName;
 	const keyLocationInBucket = event.Records[0].s3.object.key;
 	const splittedKeyLocation = keyLocationInBucket.split("/");
 	const imageType = splittedKeyLocation[0];
@@ -72,7 +73,7 @@ exports.handler = (event, context, callback) => {
 				promises.forEach((resizedImageAndDimension) => {
 					s3.putObject({
 						Bucket: destinationBucket,
-						Key: keyLocationInDestinationBucket + "/" + resizedImageAndDimension[1] + 'x' +'.jpg',
+						Key: keyLocationInDestinationBucket + "/" + resizedImageAndDimension[1] + '.jpeg',
 						Body: resizedImageAndDimension[0]
 					}, (err, data) => {
 						if (err) {
