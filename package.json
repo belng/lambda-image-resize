@@ -1,29 +1,15 @@
 {
-  "name": "s3Lambda",
+  "name": "avatarresize",
   "version": "1.0.0",
-  "description": "AWS Lambda script to resize images on every new image in a bucket",
+  "description": "AWS Lambda script to resize images",
   "main": "index.js",
   "dependencies": {
-    "gm": "x",
-	"aws-sdk": "x"
+    "aws-sdk": "x",
+    "gm": "x"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:sindhus/s3-demo.git"
-  },
-  "keywords": [
-    "lambda",
-    "aws",
-    "s3"
-  ],
-  "author": "Sindhu S",
-  "license": "GNU Affero",
-  "bugs": {
-    "url": "https://github.com/sindhus/s3-demo/issues"
-  },
-  "homepage": "https://github.com/sindhus/s3-demo"
+  "author": "Subham Gaurav"
 }
