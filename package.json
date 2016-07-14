@@ -1,7 +1,7 @@
 {
   "name": "thumbda",
   "version": "1.0.0",
-  "description": "AWS Lambda script to resize images",
+  "description": "AWS Lambda script to take the images uploaded to source bucket, resize them and put it in the destination bucket",
   "main": "index.js",
   "dependencies": {
     "aws-sdk": "x",
