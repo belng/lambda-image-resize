@@ -9,8 +9,6 @@ const dimensions = {
 	content: [120, 240, 320, 480, 640, 960]
 };
 
-console.log(config.bucketName);
-
 exports.handler = (event, context, callback) => {
 	const s3 = new AWS.S3();
 	const bucket = event.Records[0].s3.bucket.name;
